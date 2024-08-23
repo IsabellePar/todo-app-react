@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Matemasie&family=Nanum+Gothic+Coding&display=swap");
+
+:root {
+    --purple-dark: rgb(49, 33, 70);
+    --purple-grey: rgb(176, 169, 189);
+    --text-light: rgb(247, 247, 247);
+    --text-dark: rgb(38, 38, 38);
+    --light-grey: rgb(230, 230, 230);
+    --purple-light: #5d57a6;
+    --purple-lighter: rgb(181, 152, 209);
+    --pink-bright: rgb(233, 43, 74);
+    --pink-lighter: rgb(219, 111, 129);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    background-image: linear-gradient(
+        180deg,
+        var(--purple-dark),
+        var(--text-light)
+    );
+    min-height: 100vh;
+    padding: 3rem;
+    font-family: "Nanum Gothic Coding", monospace;
+    color: var(--text-dark);
+}
+
+.todo-container {
+    margin: 0 auto;
+    width: 30rem;
+    min-height: 75vh;
+    background-color: var(--light-grey);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px var(--purple-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .header {
+        width: 100%;
+        background-color: var(--purple-grey);
+        border-radius: 10px 10px 0 0;
+        padding: 0 1.5rem;
+
+        h1 {
+            font-family: "Matemasie", sans-serif;
+            color: var(--purple-light);
+            text-shadow: -1px 2px 2px rgba(0, 0, 0, 0.562);
+            font-size: 3rem;
+        }
+
+        .todo-info {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .counter {
+                background-color: var(--text-light);
+                height: 7rem;
+                width: 12rem;
+                border-radius: 7px;
+                box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.562);
+                text-align: center;
+                align-content: center;
+
+                span {
+                    display: block;
+                    font-size: 3rem;
+                    font-family: "Lucida Sans", "Lucida Sans Regular",
+                        "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+                        sans-serif;
+                    letter-spacing: 5px;
+                }
+            }
+
+            .emoji {
+                width: 120px;
+                height: 120px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .form {
+        #task-input,
+        .add-btn {
+            margin: 2rem 0;
+            padding: 0.7rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.322);
+            box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.562);
+        }
+
+        #task-input {
+            border-radius: 20px 0 0 20px;
+        }
+
+        .add-btn {
+            border-radius: 0 20px 20px 0;
+            background: linear-gradient(
+                45deg,
+                var(--purple-light),
+                var(--purple-lighter)
+            );
+            cursor: pointer;
+            color: var(--text-light);
+            transform-origin: center left;
+
+            &:hover {
+                background-color: var(--purple-lighter);
+            }
+
+            &:active {
+                background-color: var(--purple-light);
+                transform: scale(0.95);
+            }
+        }
+    }
+
+    .task-container {
+        list-style-type: none;
+        width: 60%;
+        margin-bottom: auto;
+
+        .list-item {
+            text-transform: capitalize;
+            display: flex;
+            gap: 0.8rem;
+            padding: 0.4rem 0;
+            align-items: center;
+
+            p {
+                font-size: 1.2rem;
+                margin-bottom: -7px;
+            }
+
+            span {
+                cursor: pointer;
+                text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.562);
+            }
+
+            .delete-btn {
+                margin-left: auto;
+            }
+        }
+    }
+
+    .clear-btn {
+        width: 40px;
+        background: linear-gradient(
+            45deg,
+            var(--pink-bright),
+            var(--pink-lighter)
+        );
+        cursor: pointer;
+        color: var(--text-light);
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.322);
+        padding: 0.7rem;
+        margin: 3rem 1.5rem 1.5rem auto;
+        box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.562);
+        overflow: hidden;
+        white-space: nowrap;
+        transition: width 0.3s ease;
+
+        .btn-icon {
+            margin-left: auto;
+            text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.562);
+            filter: brightness(120%);
+        }
+        .btn-text {
+            display: none;
+            opacity: 0;
+            margin-right: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        &:hover {
+            width: 12rem;
+
+            span {
+                display: inline-block;
+                opacity: 1;
+            }
+        }
+
+        &:active {
+            background-color: var(--pink-lighter);
+            transform: scale(0.98);
+        }
+    }
+}
